@@ -1,10 +1,10 @@
-FROM python:3.7
-MAINTAINER Diego luisi
+FROM golang:1.14 as build
+WORKDIR /build
+COPY . .
+RUN CGO_ENABLED=0 go build -o hello-gitops cmd/main.go
 
-RUN mkdir /app
+FROM alpine:3.12
+EXPOSE 8080
 WORKDIR /app
-ADD app/* /app/
-RUN pip install -r requirements.txt
-
-EXPOSE 5000
-CMD ["python", "/app/main.py"]
+COPY --from=build /build/hello-gitops .
+CMD ["./hello-gitops"]
