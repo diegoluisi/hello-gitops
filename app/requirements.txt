@@ -1,4 +1,0 @@
-Flask
-kafka-python
-datetime
-tzlocal
