@@ -4,4 +4,3 @@
 
 ## Go Template App
 
-### Teste
