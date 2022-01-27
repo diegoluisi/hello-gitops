@@ -2,4 +2,4 @@
 
 # hello-gitops
 
-## Go Template App - Test
+## Go Template App
