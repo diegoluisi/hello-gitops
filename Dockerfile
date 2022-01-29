@@ -1,10 +1,22 @@
-FROM golang:1.14 as build
-WORKDIR /build
+FROM golang:1.15-alpine3.12 as builder
+ENV LANG en_US.UTF-8
+ENV LC_ALL=C
+ENV LANGUAGE en_US.UTF-8
+WORKDIR /workspace
 COPY . .
-RUN CGO_ENABLED=0 go build -o hello-gitops cmd/main.go
+RUN go mod download
+# Enforce to use UTF8 char code
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -o golangapi ./cmd/golangapi/**.go
 
-FROM alpine:3.12
-EXPOSE 8080
-WORKDIR /app
-COPY --from=build /build/hello-gitops .
-CMD ["./hello-gitops"]
+# Use distroless as minimal base image to package the golangapi binary
+# Refer to https://github.com/GoogleContainerTools/distroless for more details
+FROM gcr.io/distroless/static:nonroot as final
+WORKDIR /
+# Enforce to use UTF8 char code
+ENV LANG en_US.UTF-8
+ENV LC_ALL=C
+ENV LANGUAGE en_US.UTF-8
+COPY --from=builder /workspace/golangapi .
+USER nonroot:nonroot
+
+ENTRYPOINT ["/golangapi"]
