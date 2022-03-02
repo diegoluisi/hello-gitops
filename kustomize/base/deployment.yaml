@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-gitops
+  labels:
+    app: hello-gitops
+    component: web
+spec:
+  selector:
+    matchLabels:
+      app: hello-gitops
+      component: web
+  template:
+    metadata:
+      labels:
+        app: hello-gitops
+        component: web
+    spec:
+      containers:
+      - name: hello-gitops
+        image: diegoluisi/hello-gitops:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+          requests:
+            cpu: 500m
+            memory: 512Mi
