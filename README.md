@@ -1,9 +1,10 @@
 [![Go](https://github.com/diegoluisi/hello-gitops/actions/workflows/docker-image.yml/badge.svg)](https://github.com/diegoluisi/hello-gitops/actions/workflows/docker-image.yml)
 [![CodeQL](https://github.com/diegoluisi/hello-gitops/actions/workflows/codeql.yml/badge.svg)](https://github.com/diegoluisi/hello-gitops/actions/workflows/codeql.yml)
 
-# hello-gitops
+# **hello-gitops**
 
 ## **Go Template App**
+
 
 ### 🛠️ **Requirements**
 
