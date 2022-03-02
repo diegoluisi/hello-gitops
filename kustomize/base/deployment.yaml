@@ -20,11 +20,11 @@ spec:
       - name: hello-gitops
         image: diegoluisi/hello-gitops:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8000
         resources:
           limits:
-            cpu: 1000m
-            memory: 1Gi
-          requests:
-            cpu: 500m
+            cpu: 512m
             memory: 512Mi
+          requests:
+            cpu: 256m
+            memory: 256Mi
