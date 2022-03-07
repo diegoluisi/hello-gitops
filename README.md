@@ -1,5 +1,6 @@
 [![Go](https://github.com/diegoluisi/hello-gitops/actions/workflows/docker-image.yml/badge.svg)](https://github.com/diegoluisi/hello-gitops/actions/workflows/docker-image.yml)
 [![CodeQL](https://github.com/diegoluisi/hello-gitops/actions/workflows/codeql.yml/badge.svg)](https://github.com/diegoluisi/hello-gitops/actions/workflows/codeql.yml)
+[![App Status](https://argocd.diegoluisi.eti.br/api/badge?name=hello-gitops&revision=true)](https://argocd.diegoluisi.eti.br/applications/hello-gitops)
 
 # **hello-gitops** 👋🏻
 
